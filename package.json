@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev":"next",
-    "build":"next build",
-    "start":"next start",
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
     "cypress-run": "cypress run",
     "int-test": "start-server-and-test next http://localhost:3000 cypress-run"
   },
@@ -17,6 +17,7 @@
     "-": "^0.0.1",
     "@faker-js/faker": "^9.7.0",
     "cypress": "^14.3.3",
+    "package-lock.json": "^1.0.0",
     "save-dev": "^0.0.1-security",
     "start-server-and-test": "^2.0.11",
     "upgrade-node-modules": "^1.5.1",

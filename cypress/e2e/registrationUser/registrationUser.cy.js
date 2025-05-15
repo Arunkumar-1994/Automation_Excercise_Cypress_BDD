@@ -201,3 +201,16 @@ And("enter the all personal details", () => {
     cy.waitUntil(() => homePage.getLogoVisible().should("be.visible"));
   });
 });
+
+And("enter the existing username and email", ()=>{
+      cy.waitUntil(() => loginPage.enterUserName().type('Jeffrey_Schmeler'));
+    cy.waitUntil(() => loginPage.enterSignUpEmailAddress().type('Raoul.Veum14@yahoo.com'));
+})
+
+When("click on signup button",()=>{
+  cy.waitUntil(()=>loginPage.clickSignUpButton().click());
+})
+
+Then("user should view the error message Email Address already exist!",()=>{
+cy.waitUntil(()=>loginPage.getExistingEmailErrorMessage().should('be.visible').should('have.text', 'Email Address already exist!'));
+})

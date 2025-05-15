@@ -1,5 +1,6 @@
 {
   "getUserName": "",
   "getUserEmail": "",
-  "Password": "Pa55w0rd!"
+  "Password": "Pa55w0rd!",
+  "PdfFileUpload": "Token Pass.pdf"
 }

@@ -54,7 +54,10 @@ class loginPage{
         return cy.xpath("//button[@data-qa='signup-button']");
      }
 
-
+     getExistingEmailErrorMessage(){
+      //Email Address already exist!
+      return cy.get('div.signup-form form p');
+     }
 
 
 

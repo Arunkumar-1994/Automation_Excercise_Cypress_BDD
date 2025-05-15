@@ -90,5 +90,22 @@ class homePage{
     getLoggedInAsButton(){
         return cy.xpath("//li //a[text()=' Logged in as ']");
     }
+
+    getSubscriptionHeading(){
+        return cy.get('.single-widget h2');
+    }
+
+    enterEmailAddress(){
+        return cy.get('#susbscribe_email');
+    }
+
+    clickSubscribeButton(){
+        return cy.get('#subscribe');
+    }
+
+    getSubscriptionSuccessMessage(){
+        return cy.get('.alert-success.alert');
+    }
+
 }
 export default homePage;
