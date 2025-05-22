@@ -109,13 +109,14 @@ class signUpPage{
     }
 
     getSucces_Delete_MessageHeading(){
-        //Account Created!    //Account Deleted!
+        //Account Created!    //Account Deleted! //Order Placed!
         return cy.get('.col-sm-9.col-sm-offset-1 h2 b');
     }
 
     getCongratulation_Delete_Message(){
         //Congratulations! Your new account has been successfully created!
         //Your account has been permanently deleted!
+        //Congratulations! Your order has been confirmed!
         return cy.get('.col-sm-9.col-sm-offset-1 p').eq(0);
     }
 

@@ -2,5 +2,6 @@
   "getUserName": "",
   "getUserEmail": "",
   "Password": "Pa55w0rd!",
-  "PdfFileUpload": "Token Pass.pdf"
+  "PdfFileUpload": "Token Pass.pdf",
+  "BrandsName": ["Polo","H&M", "Madame", "Mast & Harbour",  "Babyhug" , "Allen Solly Junior", "Kookie Kids", "Biba" ]
 }

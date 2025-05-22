@@ -107,5 +107,68 @@ class homePage{
         return cy.get('.alert-success.alert');
     }
 
+    clickAddToCartOfFirstProduct(){
+        return cy.get('.btn.btn-default.add-to-cart ').eq(0);
+    }
+
+    getConfirmDialogBox(){
+        return cy.get('div.modal-dialog.modal-confirm div.modal-content');
+    }
+
+    getConfirmDialogBoxHeading(){
+        return cy.get('.modal-content div h4').should('be.visible')
+        // .should('have.text','Added!');
+        // .should('have.text','Checkout');
+    }
+
+    getConfirmDialogSentence(){
+        return cy.get('.modal-content div p').eq(0).should('be.visible')
+        // .should('have.text','Your product has been added to cart.');
+        // .should('have.text','Register / Login account to proceed on checkout.');
+    }
+
+    clickViewCart_RegisterLoginButton(){
+        // return cy.get('.modal-content div p a').should('be.visible');
+        return cy.get('.modal-content div p a')
+    }
+
+    clickContinue_ContinueOnChartButton(){
+        return cy.get('.modal-content .modal-footer button');
+    }
+
+    clickCategory_BrandsButton(){
+        //eq(0) for category eq(1) brands
+        return cy.get('.left-sidebar h2');
+    }
+
+    clickWomen_Men_Kids_CategoryOption(){
+        //eq(0) for Women,, eq(1) for men.., eq(2) for kids
+        return cy.get('.panel-group.category-products div h4.panel-title a');
+    }
+
+    clickWomenCategoryProducts(){
+        //eq(0) for dress // eq(1) for tops //eq(2) for saree
+        return cy.get('div#Women .panel-body ul li a')
+    }
+    
+    clickMenCategoryProducts(){
+        //eq(0) Tshirts  //eq(1) Jeans
+        return cy.get('div#Men .panel-body ul li a')
+    }
+
+    clickKidsCategoryProducts(){
+        //eq(0) Dress //eq(1) Tops and shirts
+        return cy.get('div#Kids .panel-body ul li a');
+    }
+   
+    getNoOfBrandList(){
+        //length is 8
+        return cy.get('.brands-name .nav.nav-pills.nav-stacked li a');
+    }
+    clickBrandName(brandName){
+        // 1. Polo 2. H&M 3.Madame 4. Mast & Harbour 5. Babyhug 6. Allen Solly Junior 7. Kookie Kids 8. Biba 
+        return cy.get(`.brands-name .nav.nav-pills.nav-stacked li a[href="/brand_products/${brandName}"]`);
+    }
+    
 }
 export default homePage;

@@ -75,7 +75,11 @@ class productsPage {
   }
 
   clickViewProductButton(){
-    return cy.get('//*[text()="View Product"]').eq(0);
+    return cy.xpath('//*[text()="View Product"]').eq(0);
+  }
+
+  getCategoryOptionHeadingForProducts(){
+    return cy.get('.features_items h2.title.text-center');
   }
 }
 export default productsPage;

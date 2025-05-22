@@ -92,4 +92,29 @@ cy.get('.modal-content div p a').should('be.visible').click();
    });
     cy.log('The product price is '+firstProductPrice);
     cy.get('tbody tr#product-1 td.cart_total p.cart_total_price').should('be.visible').should('contain','2000');
-})   
+})
+
+/**
+ * Scenario: verify the user is able to view the brand products
+ */
+
+And("verify the brand visible on left sidebar",()=>{
+  cy.waitUntil(()=>homePage.clickCategory_BrandsButton().eq(1).should('be.visible'));
+  let noOfBrands = homePage.getNoOfBrandList().length;
+  cy.log(noOfBrands);
+  cy.waitUntil(()=>homePage.getNoOfBrandList().should('have.length',8));
+  cy.waitUntil(()=>homePage.clickBrandName(data.BrandsName[1]).click());
+  cy.waitUntil(() =>
+    productsPage
+      .getCategoryOptionHeadingForProducts()
+      .should("be.visible")
+      .should("have.text", `Brand - ${data.BrandsName[1]} Products`)
+  );
+    cy.waitUntil(()=>homePage.clickBrandName(data.BrandsName[6]).click());
+      cy.waitUntil(() =>
+    productsPage
+      .getCategoryOptionHeadingForProducts()
+      .should("be.visible")
+      .should("have.text", `Brand - ${data.BrandsName[6]} Products`)
+  );
+})

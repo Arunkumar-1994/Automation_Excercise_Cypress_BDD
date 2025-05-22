@@ -1,10 +1,12 @@
 import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import HomePage from "../../support/pageObjects/homePage";
 import ProductsPage from "../../support/pageObjects/productsPage";
+import CartPage from "../../support/pageObjects/cartPage";
 
 
 const homePage = new HomePage();
 const productsPage = new ProductsPage();
+const cartPage = new CartPage();
 
 let data = {};
 beforeEach(() => {
@@ -97,13 +99,9 @@ Then("user should view the addToCart page with product details",()=>{
 })
 
 /**
-When("click on view cart button in the product page",()=>{
-    cy.waitUntil(()=>productsPage.clickViewProductButton().click());
-})
 
-Then("user should view the product details",()=>{
-    cy.url().should('include','/product_details')
-})
+
+
 And("increase the quantity of the product",()=>{
 
 })
@@ -112,3 +110,20 @@ And("click addToCart button",()=>{
 
 })
      */
+
+// When("click on view cart button in the product page",()=>{
+//     cy.waitUntil(()=>productsPage.clickViewProductButton().click({force:true}));  
+// })
+
+// Then("user should view the product details",()=>{
+//     cy.url().should('include','/product_details')
+// })
+
+And("click the remove button from the products",()=>{  
+  let NoOfRemoveItems = cartPage.clickRemoveProductButton().length;
+  // for (let i =0 ; i < NoOfRemoveItems ; i++){
+  //   cy.waitUntil(()=>cartPage.clickRemoveProductButton().eq([i]).click());
+  //   console.log(NoOfRemoveItems);
+  // }
+      cy.waitUntil(()=>cartPage.clickRemoveProductButton().eq(0).click());
+})
