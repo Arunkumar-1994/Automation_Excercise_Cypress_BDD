@@ -1,6 +1,6 @@
 class deleteAccount{
 
-    get 
+    // get 
 
 
 

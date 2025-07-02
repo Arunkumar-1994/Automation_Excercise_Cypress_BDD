@@ -112,7 +112,7 @@ And("click addToCart button",()=>{
      */
 
 // When("click on view cart button in the product page",()=>{
-//     cy.waitUntil(()=>productsPage.clickViewProductButton().click({force:true}));  
+    // cy.waitUntil(()=>productsPage.clickViewProductButton().click({force:true}));  
 // })
 
 // Then("user should view the product details",()=>{

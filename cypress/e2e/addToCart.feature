@@ -1,6 +1,6 @@
 Feature: Validate the add to cart functionality
 
-Background: Background name
+Background: launch the app
 
 Given lauch the application and validate the home page
 

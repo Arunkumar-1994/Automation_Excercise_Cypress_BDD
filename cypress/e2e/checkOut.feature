@@ -54,7 +54,7 @@ Then user should view the product detials in the cart page
 When click proceedToCheck button
 And verify the user and product details
 And Enter description in comment text area
-And click Place order button
+And click on the Place order button
 And enter the card details 
 When click pay and confirm order button
 Then user should view the confirmation message

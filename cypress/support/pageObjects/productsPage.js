@@ -75,7 +75,8 @@ class productsPage {
   }
 
   clickViewProductButton(){
-    return cy.xpath('//*[text()="View Product"]').eq(0);
+    // return cy.xpath('//*[text()="View Product"]').eq(0);
+    return cy.contains('View Product').eq(0);
   }
 
   getCategoryOptionHeadingForProducts(){

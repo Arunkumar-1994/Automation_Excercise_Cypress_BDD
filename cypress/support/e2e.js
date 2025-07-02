@@ -17,3 +17,4 @@
 import './commands'
 require('cypress-xpath');
 import { faker } from '@faker-js/faker';
+import 'cypress-mochawesome-reporter/register';

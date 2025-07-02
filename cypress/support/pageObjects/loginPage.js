@@ -14,13 +14,16 @@ class loginPage{
  }
  
  enterEmailAddress(){
-    return cy.xpath("//input[@data-qa='login-email']");
+   //  return cy.xpath("//input[@data-qa='login-email']");
+   return cy.get('input[data-qa="login-email"]');
  }
  enterPassword(){
-    return cy.xpath("//input[@data-qa='login-password']");
+   //  return cy.xpath("//input[@data-qa='login-password']");
+   return cy.get('input[data-qa="login-password"]');
  }
  clickLoginButton(){
-    return cy.xpath("//button[@data-qa='login-button']");
+   //  return cy.xpath("//button[@data-qa='login-button']");
+   return cy.get('button[data-qa="login-button"]');
  }
 
  getIncorrectEmailPasswordMessage(){
@@ -43,15 +46,18 @@ class loginPage{
      }
 
      enterUserName(){
-        return cy.xpath("//input[@data-qa='signup-name']");
+      //   return cy.xpath("//input[@data-qa='signup-name']");
+      return cy.get('input[data-qa="signup-name"]');
      }
 
      enterSignUpEmailAddress(){
-        return cy.xpath("//input[@data-qa='signup-email']");
+      //   return cy.xpath("//input[@data-qa='signup-email']");
+      return cy.get('input[data-qa="signup-email"]');
      }
 
      clickSignUpButton(){
-        return cy.xpath("//button[@data-qa='signup-button']");
+      //   return cy.xpath("//button[@data-qa='signup-button']");
+      return cy.get('button[data-qa="signup-button"]');
      }
 
      getExistingEmailErrorMessage(){

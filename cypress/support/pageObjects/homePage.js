@@ -5,23 +5,27 @@ class homePage{
     }
 
     getActiveHeadding(){
-        return cy.xpath("//div[@class='item active'] //div //h1")
+        // return cy.xpath("//div[@class='item active'] //div //h1")
+        return cy.get('div[class="item active"] [class="col-sm-6"] h1');
     }
     
     getActiveSentence(){
         //the text is  = Full-Fledged practice website for Automation Engineers
-        return cy.xpath("(//div[@class='item active'] //div //h2)[1]")
+        return cy.get('div[class="item active"] [class="col-sm-6"] h2');
+        // return cy.xpath("(//div[@class='item active'] //div //h2)[1]")
     }
 
     getActivePara(){
         /**
          * The active paragraph is = All QA engineers can use this website for automation practice and API testing either they are at beginner or advance level. This is for everybody to help them brush up their automation skills.
          */
-    return cy.xpath("(//div[@class='item active'] //div //p)[1]");
+        return cy.get('div[class="item active"] [class="col-sm-6"] p');
+    // return cy.xpath("(//div[@class='item active'] //div //p)[1]");
     }
 
     getTestCaseButton(){
-        return cy.xpath("//div[@class='item active'] //div //a[@class='test_cases_list'] //button")
+        // return cy.xpath("//div[@class='item active'] //div //a[@class='test_cases_list'] //button")
+        return cy.get('div[class="item active"] [class="col-sm-6"] a[class="test_cases_list"]');
 
         /** 
          * Text is = Test Cases and check is enabled
@@ -29,7 +33,8 @@ class homePage{
     }
 
     getAPIlistForPracticeButton(){
-        return cy.xpath("//div[@class='item active'] //div //a[@class='apis_list'] //button")
+        return cy.get('div[class="item active"] [class="col-sm-6"] a[class="apis_list"]');
+        // return cy.xpath("//div[@class='item active'] //div //a[@class='apis_list'] //button")
         /** 
         * Text is = APIs list for practice and check is enabled
         */
@@ -45,50 +50,62 @@ class homePage{
     }
 
     clickHomeButton(){
-        return cy.xpath("//li //a[text()=' Home']");
+        // return cy.xpath("//li //a[text()=' Home']");
+        return cy.contains(' Home')
     }
     
      clickProductsButton(){
-        return cy.xpath("//li //a[text()=' Products']");
+        // return cy.xpath("//li //a[text()=' Products']");
+        return cy.contains(' Products');
     }
 
     clickCartButton(){
-        return cy.xpath("//li //a[text()=' Cart']");
+        // return cy.xpath("//li //a[text()=' Cart']");
+        return cy.contains(' Cart');
     }
     clickLoginButton(){
-        return cy.xpath("//li //a[text()=' Signup / Login']");
+        // return cy.xpath("//li //a[text()=' Signup / Login']");
+        return cy.contains(' Signup / Login');
     }
 
     clickTestCasesButton(){
-        return cy.xpath("//li //a[text()=' Test Cases']");
+        // return cy.xpath("//li //a[text()=' Test Cases']");
+        return cy.contains(' Test Cases');
+
     }
 
     clickApiTestngButton(){
-        return cy.xpath("//li //a[text()=' API Testing']");
+        // return cy.xpath("//li //a[text()=' API Testing']");
+        return cy.contains(' API Testing');
     }
 
-    clickHomeButton(){
-        return cy.xpath("//li //a[text()=' Home']");
-    }
+    // clickHomeButton(){
+    //     return cy.xpath("//li //a[text()=' Home']");
+    // }
 
     clickVideoTutorialsButton(){
-        return cy.xpath("//li //a[text()=' Video Tutorials']");
+        // return cy.xpath("//li //a[text()=' Video Tutorials']");
+        return cy.contains(' Video Tutorials');
     }
 
     clickContactUsButton(){
-        return cy.xpath("//li //a[text()=' Contact us']");
+        // return cy.xpath("//li //a[text()=' Contact us']");
+        return cy.contains(' Contact us');
     }
 
     clickLogoutButton(){
-        return cy.xpath("//li //a[text()=' Logout']");
+        // return cy.xpath("//li //a[text()=' Logout']");
+        return cy.contains(' Logout');
     }
 
     clickDeleteAccountButton(){
-        return cy.xpath("//li //a[text()=' Delete Account']");
+        // return cy.xpath("//li //a[text()=' Delete Account']");
+        return cy.contains(' Delete Account');
     }
 
     getLoggedInAsButton(){
-        return cy.xpath("//li //a[text()=' Logged in as ']");
+        // return cy.xpath("//li //a[text()=' Logged in as ']");
+        return cy.contains(' Logged in as ');
     }
 
     getSubscriptionHeading(){

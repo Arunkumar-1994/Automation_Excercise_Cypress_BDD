@@ -213,3 +213,12 @@ Then("verify the user is logged in the application",()=>{
 })
 
 And("add the first products",()=>{cy.waitUntil(() => homePage.clickAddToCartOfFirstProduct().click());})
+
+And("click on the Place order button",()=>{
+   cy.waitUntil(() =>
+    checkOutPage.clickPlaceOrderButton().scrollIntoView()
+  ); 
+  cy.waitUntil(() =>
+    checkOutPage.clickPlaceOrderButton().should("be.visible").click()
+  );
+})

@@ -145,3 +145,4 @@ Cypress.Commands.add("enterCardDetails",()=>{
     cy.waitUntil(()=>paymentPage.enterExpiryYear().type("2029"));
     
 })
+
