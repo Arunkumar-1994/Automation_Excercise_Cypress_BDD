@@ -24,7 +24,7 @@ jobs:
         #   build: npm run build
         #   start: npm start+
         with: 
-          browsers: ${{ matrix.browser }}
+          browser: ${{ matrix.browser }}
           command: npx cypress run --browsers ${{ matrix.browser }} --reporter mochawesome --reporter-options reportDir=cypress/reports/${{ matrix.browser }}
 
       - name: Marge Mochawesome Reports
