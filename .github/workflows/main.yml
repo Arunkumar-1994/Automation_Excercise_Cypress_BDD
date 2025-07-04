@@ -12,31 +12,31 @@ jobs:
       #If something fails it wouldn't stop the execution. It will continue the execution.
         fail-fast: false
         matrix: 
-            browsers: [chrome, edge, electron]
+            browser: [chrome, edge, electron]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run in ${{matrix.browsers}}
+      - name: Cypress run in ${{ matrix.browser }}
         uses: cypress-io/github-action@v6
         # with:
         #   build: npm run build
         #   start: npm start+
         with: 
-          browsers: ${{ matrix.browsers}}
-          command: npx cypress run --browsers ${{ matrix.browsers }} --reporter mochawesome --reporter-options reportDir=cypress/reports/${{ matrix.browsers }}
+          browsers: ${{ matrix.browser }}
+          command: npx cypress run --browsers ${{ matrix.browser }} --reporter mochawesome --reporter-options reportDir=cypress/reports/${{ matrix.browser }}
 
       - name: Marge Mochawesome Reports
-        run: npx mochaesome-merge cypress/reports/${{matrix.browsers}}/*.json > cypress/reports/${{ matrix.browsers }}/merged-reports.json
+        run: npx mochaesome-merge cypress/reports/${{ matrix.browser }}/*.json > cypress/reports/${{ matrix.browser }}/merged-reports.json
 
       - name: Generate HTML Reports
-        run: npx marge cypress/reports/${{ matrix.browsers }}/ merged-reports.json --reportDir cypress/reports/${{ matrix.browsers }} -f "${{ matrix.browsers}}-report.html"
+        run: npx marge cypress/reports/${{ matrix.browser }}/ merged-reports.json --reportDir cypress/reports/${{ matrix.browser }} -f "${{ matrix.browser }}-report.html"
 
       - name: Upload HTML file
         uses: actions/upload-artifact@v4
         with:
-          name: Cypress HTML Report ${{ matrix.browsers}}
-          path: cypress/report/${{matrix.browsers}}
+          name: Cypress HTML Report ${{ matrix.browser }}
+          path: cypress/report/${{ matrix.browser }}
 
        
