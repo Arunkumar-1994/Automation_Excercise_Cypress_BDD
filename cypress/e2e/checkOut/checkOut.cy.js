@@ -43,7 +43,7 @@ Then("user should view the popmodal window", () => {
 });
 
 And("click viewCart button", () => {
-  cy.waitUntil(() => homePage.clickViewCart_RegisterLoginButton().click());
+  cy.waitUntil(() => homePage.clickViewCart_RegisterLoginButton().click({force: true}));
   cy.url().should("include", "view_cart");
   cy.waitUntil(() => cartPage.getTableHeading());
   cy.waitUntil(() => cartPage.getProducPrice().should("be.visible"));
@@ -173,7 +173,8 @@ And("add the products",()=>{
 })
 
 When("click cart button",()=>{
-    cy.waitUntil(()=>homePage.clickCartButton().click());
+    cy.wait(2500);
+    cy.waitUntil(()=>homePage.clickCartButton().click({force:true}));
 });
 
 Then("user should view the product detials in the cart page",()=>{

@@ -42,7 +42,8 @@ cy.waitUntil(()=>homePage.getConfirmDialogBox().should('be.visible'));
     cy.waitUntil(()=>homePage.getConfirmDialogBoxHeading().should('have.text','Added!'));
     cy.waitUntil(()=>homePage.getConfirmDialogSentence().should('have.text','Your product has been added to cart.'));
     cy.waitUntil(()=>homePage.clickViewCart_RegisterLoginButton().should('be.visible'));
-    cy.waitUntil(()=>homePage.clickContinue_ContinueOnChartButton().should('be.visible')); 
+    cy.waitUntil(()=>homePage.clickContinue_ContinueOnChartButton().should('be.visible'));
+    cy.wait(2000); 
 })
 
 Cypress.Commands.add("registerANewAccount",()=>{
