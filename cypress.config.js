@@ -2,8 +2,8 @@ const { defineConfig } = require("cypress");
 const cucumber = require("cypress-cucumber-preprocessor").default;
 
 module.exports = defineConfig({
-  projectId: "4wxgcp",
-  reporter: 'cypress-mochawesome-reporter',
+  projectId: "chzhoe",
+  // reporter: 'cypress-mochawesome-reporter',
   // defaultCommandTimeout: 100000, // for HTML reports
   e2e: {
     setupNodeEvents(on, config) {
@@ -13,5 +13,12 @@ module.exports = defineConfig({
     },
     specPattern: "cypress/e2e/*.feature",
     experimentalStudio : true, 
+  },
+   reporter: 'mochawesome',
+  reporterOptions: {
+    // reportDir: 'cypress/results',
+    overwrite: false,
+    html: false,
+    json: true,
   },
 });

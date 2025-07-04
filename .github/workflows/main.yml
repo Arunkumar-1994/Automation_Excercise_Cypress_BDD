@@ -1,17 +1,42 @@
 name: Cypress Tests
 
-on: push
+on: 
+    push:
+     #Trigger the build manually 
+    workflow_dispatch:
 
 jobs:
   cypress-run:
     runs-on: ubuntu-24.04
+    strategy:
+      #If something fails it wouldn't stop the execution. It will continue the execution.
+        fail-fast: false
+        matrix: 
+            broswers: [chrome, edge, electron]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: Cypress run in ${{matrix}}
         uses: cypress-io/github-action@v6
         # with:
         #   build: npm run build
-        #   start: npm start
+        #   start: npm start+
+        with: 
+          browsers: ${{ matrix.broswers}}
+          command: npx cypress run --browsers ${{ matrix.broswers }} --reporter mochawesome --reporter-options reportDir=cypress/reports/${{ matrix.broswers }}
+
+      - name: Marge Mochawesome Reports
+        run: npx mochaesome-merge cypress/reports/${{matrix.broswers}}/*.json > cypress/reports/${{ matrix.broswers }}/merged-reports.json
+
+      - name: Generate HTML Reports
+        run: npx marge cypress/reports/${{ matrix.broswers }}/ merged-reports.json --reportDir cypress/reports/${{ matrix.broswers }} -f "${{ matrix.broswers}}-report.html"
+
+      - name: Upload HTML file
+        uses: actions/upload-artifact@v4
+        with:
+          name: Cypress HTML Report ${{ matrix.broswers}}
+          path: cypress/report/${{matrix.broswers}}
+
+       
