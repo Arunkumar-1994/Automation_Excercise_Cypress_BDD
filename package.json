@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next",
-    "build": "next build",
-    "start": "next start",
+    "build": "run build",
+    "start": "http-server",
+    "cypress-open": "cypress open",
     "cypress-run": "cypress run",
     "int-test": "start-server-and-test next http://localhost:3000 cypress-run",
-    "test-gitlab":"npx cypress run --record --key 34fdd1d8-14af-43d0-95db-fc8913d35d5f"
+    "test-gitlab": "npx cypress run --record --key 34fdd1d8-14af-43d0-95db-fc8913d35d5f"
   },
   "author": "Arunkumar",
   "license": "ISC",
@@ -29,7 +30,10 @@
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-mochawesome-reporter": "^3.8.2",
     "cypress-wait-until": "^3.0.2",
-    "cypress-xpath": "^2.0.1"
+    "cypress-xpath": "^2.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.2.0"
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
